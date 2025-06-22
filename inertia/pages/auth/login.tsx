@@ -34,7 +34,7 @@ export default function Login() {
                     <div className="w-full md:w-1/2 hidden md:flex justify-center">
                         <img
                             src="../public/assets/logoPT.png"
-                            alt="Login Illustration"
+                            alt="KlikKita"
                             className="w-full max-w-md"
                         />
                     </div>
