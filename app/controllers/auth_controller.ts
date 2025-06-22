@@ -3,7 +3,7 @@ import User from '#models/user'
 
 export default class AuthController {
   public showLogin({ inertia }: HttpContext) {
-    return inertia.render('Auth/Login')
+    return inertia.render('auth/login')
   }
 
   public async login({ request, auth, response, session }: HttpContext) {
