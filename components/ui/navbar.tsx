@@ -1,26 +1,38 @@
-import { Button } from "../ui/button.js";
 import { Link } from "@inertiajs/react";
-
+import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 
 export default function Navbar() {
     return (
-        <header className="flex flex-col md:flex-row md:justify-between md:items-center px-4 md:px-6 py-4 shadow-md gap-4">
-            <h1 className="font-bold text-lg">KlikKita</h1>
+        <header className="flex items-center justify-between px-6 py-4 shadow-md bg-white">
+            {/* Logo */}
+            <h1 className="font-bold text-xl">Exclusive</h1>
 
-            <nav className="flex flex-wrap justify-center gap-4 text-sm">
-                <Link href="/">Beranda</Link>
-                <Link href="/contact">Kontak</Link>
-                <Link href="/about">Tentang Kami</Link>
-                <Link href="/register">Daftar</Link>
+            {/* Menu Navigasi */}
+            <nav className="flex gap-6 text-sm">
+                <Link href="/" className="hover:underline">Beranda</Link>
+                <Link href="/contact" className="hover:underline">Kontak</Link>
+                <Link href="/about" className="hover:underline">Tentang Kami</Link>
+                <Link href="/register" className="hover:underline">Daftar</Link>
             </nav>
 
-            <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center w-full sm:w-auto">
-                <input
-                    type="text"
-                    placeholder="Apa yang sedang kamu cari?"
-                    className="border px-3 py-1 rounded text-sm w-full sm:w-64"
-                />
-                <Button className="text-white bg-blue-500 w-full sm:w-auto">Cari</Button>
+            {/* Search + Icon */}
+            <div className="flex items-center gap-4">
+                {/* Input dan Search */}
+                <div className="relative">
+                    <input
+                        type="text"
+                        placeholder="Apa yang sedang kamu cari?"
+                        className="border rounded px-4 py-2 text-sm w-64"
+                    />
+                    <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer" />
+                </div>
+
+                {/* Ikon-ikon */}
+                <FaHeart className="text-xl cursor-pointer" />
+                <FaShoppingCart className="text-xl cursor-pointer" />
+                <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                    <FaUser className="text-white text-sm" />
+                </div>
             </div>
         </header>
     );

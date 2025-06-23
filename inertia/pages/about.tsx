@@ -9,13 +9,13 @@ import Navbar from "../../components/ui/Navbar";
 const team = [
     {
         name: 'M. Alwan Abbas',
-        role: 'Backend & Frontend',
+        role: 'Frontend',
         image: '/images/team/alwan.jpg',
         socials: { twitter: '#', instagram: '#', linkedin: '#' },
     },
     {
         name: 'Ariz Abiyyu',
-        role: 'Backend & Frontend',
+        role: 'Backend',
         image: '/images/team/ariz.jpg',
         socials: { twitter: '#', instagram: '#', linkedin: '#' },
     },
@@ -48,7 +48,11 @@ export default function About() {
             <div className="max-w-6xl mx-auto px-4 py-12">
                 <h1 className="text-3xl font-bold mb-4 text-center mx-auto">KlikKita</h1>
                 <p className="text-gray-700 leading-7 max-w-xl text-center mx-auto mb-8">
-                    KlikKita adalah platform belanja online yang hadir untuk memudahkan kamu menemukan berbagai kebutuhan dalam satu tempat...
+                    KlikKita adalah platform belanja online yang hadir untuk memudahkan kamu menemukan berbagai kebutuhan dalam satu tempat. Mulai dari produk fashion, elektronik, aksesoris, hingga perlengkapan rumah — semua tersedia dengan harga terjangkau dan kualitas terpercaya.
+
+                    Kami percaya belanja online harusnya praktis, seru, dan aman. Dengan tampilan yang simpel dan proses checkout yang cepat, kami ingin jadi solusi belanja favorit kamu setiap hari.
+
+                    Didukung oleh tim yang kreatif dan semangat, KlikKita terus berkembang untuk memberikan pengalaman belanja terbaik bagi semua pengguna di Indonesia.
                 </p>
                 <img src="../public/assets/logoPT.png" alt="KlikKita Logo" className="w-1/3 mx-auto my-8" />
 
