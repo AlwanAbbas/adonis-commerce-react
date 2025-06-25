@@ -54,7 +54,7 @@ export default function Footer() {
             </div>
 
             <div className="text-center text-xs mt-10">
-                © Copyright Rimel 2022. All right reserved
+                © Copyright KlikKita 2025. All right reserved
             </div>
         </footer>
     )

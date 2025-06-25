@@ -5,6 +5,7 @@
     "rootDir": "./",
     "outDir": "./build",
     "jsx": "react-jsx",
+    "lib": ["dom", "esnext"], 
     "paths": {
       "@/*": ["./*"],
       "~/*": ["./*"]

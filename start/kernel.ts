@@ -3,8 +3,7 @@
 | HTTP kernel file
 |--------------------------------------------------------------------------
 |
-| The HTTP kernel file is used to register the middleware with the server
-| or the router.
+| This file digunakan untuk registrasi middleware global dan router.
 |
 */
 
@@ -12,40 +11,36 @@ import router from '@adonisjs/core/services/router'
 import server from '@adonisjs/core/services/server'
 
 /**
- * The error handler is used to convert an exception
- * to an HTTP response.
+ * Error handler untuk menangani exception menjadi HTTP response
  */
 server.errorHandler(() => import('#exceptions/handler'))
 
 /**
- * The server middleware stack runs middleware on all the HTTP
- * requests, even if there is no route registered for
- * the request URL.
+ * Middleware yang selalu dijalankan, meskipun tidak ada route terdaftar
  */
 server.use([
   () => import('#middleware/container_bindings_middleware'),
   () => import('@adonisjs/static/static_middleware'),
   () => import('@adonisjs/cors/cors_middleware'),
   () => import('@adonisjs/vite/vite_middleware'),
-  () => import('@adonisjs/inertia/inertia_middleware')
+  () => import('@adonisjs/inertia/inertia_middleware'),
 ])
 
 /**
- * The router middleware stack runs middleware on all the HTTP
- * requests with a registered route.
+ * Middleware untuk semua rute terdaftar
  */
 router.use([
   () => import('@adonisjs/core/bodyparser_middleware'),
-  () => import('@adonisjs/session/session_middleware'),
-  () => import('@adonisjs/shield/shield_middleware'),
-  () => import('@adonisjs/auth/initialize_auth_middleware')
+  () => import('@adonisjs/session/session_middleware'), // ✅ session (wajib)
+  () => import('@adonisjs/shield/shield_middleware'), // ✅ proteksi CSRF dll
+  () => import('@adonisjs/auth/initialize_auth_middleware'), // ✅ auth init
 ])
 
 /**
- * Named middleware collection must be explicitly assigned to
- * the routes or the routes group.
+ * Middleware named, bisa digunakan seperti:
+ * router.get('/dashboard').middleware('auth')
  */
 export const middleware = router.named({
-  guest: () => import('#middleware/guest_middleware'),
-  auth: () => import('#middleware/auth_middleware')
+  guest: () => import('#middleware/guest_middleware'), // untuk tamu
+  auth: () => import('#middleware/auth_middleware'), // untuk user login
 })
